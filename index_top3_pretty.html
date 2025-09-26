@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>XSMB Top-3 • Pretty</title>
+<style>
+  :root {
+    --bg: #0f1226;
+    --card: rgba(255,255,255,0.08);
+    --glass: rgba(255,255,255,0.12);
+    --bd: rgba(255,255,255,0.18);
+    --txt: #f5f7ff;
+    --muted: #c9cbea;
+    --accent: #8ef0ff;
+    --accent2: #a7ffb3;
+    --warn: #ffd3d3;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; color: var(--txt); background: linear-gradient(135deg,#0b0e22,#1a1e3f 40%,#0b0e22);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 28px 18px 40px; }
+  header { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
+  .h1 { font-size: 22px; font-weight: 800; letter-spacing: .2px; }
+  .meta { color: var(--muted); font-size: 13px; opacity: .95; }
+  .card { background: var(--card); border: 1px solid var(--bd); border-radius: 18px; padding: 18px; backdrop-filter: blur(10px); }
+  .top3 { display:grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 12px 0 6px; }
+  .pill { display:flex; flex-direction:column; align-items:center; justify-content:center;
+           aspect-ratio: 1/1; border-radius: 999px; border: 1px solid var(--bd);
+           background: radial-gradient(100% 100% at 50% 50%, var(--glass) 0%, rgba(255,255,255,0.04) 60%, transparent 100%);
+           box-shadow: 0 6px 24px rgba(0,0,0,.35), inset 0 0 25px rgba(255,255,255,.06);
+           transition: transform .2s ease, box-shadow .2s ease; }
+  .pill:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.45), inset 0 0 30px rgba(255,255,255,.08); }
+  .rank { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .num { font-size: clamp(34px,7vw,48px); font-weight: 900; letter-spacing:.5px; }
+  .note { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .disclaimer { margin-top: 12px; color: var(--warn); font-weight: 700; font-size: 13px; }
+  details { margin-top: 16px; }
+  summary { cursor: pointer; user-select: none; list-style: none; padding: 10px 14px; border-radius: 12px;
+             border:1px solid var(--bd); background: var(--glass); font-weight:700; font-size: 14px; }
+  summary::marker { display:none; }
+  summary:focus { outline: none; }
+  .panel { margin-top: 12px; padding: 12px; border:1px solid var(--bd); border-radius: 12px; background: rgba(0,0,0,.15); overflow:auto }
+  table.tbl { width: 100%; border-collapse: collapse; color: var(--txt); }
+  .tbl th, .tbl td { padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,.08); font-size: 13px; }
+  .tbl th { text-align:left; color: var(--muted); font-weight: 700; }
+  .tbl tr:hover td { background: rgba(255,255,255,.04); }
+  .badge { display:inline-flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+  .accent { color: var(--accent); }
+  .accent2 { color: var(--accent2); }
+  @media (max-width: 640px) {
+    .top3 { grid-template-columns: 1fr; gap: 18px; }
+    .pill { max-width: 360px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="h1">XSMB • Top-3 gợi ý</div>
+      <div class="badge">Cập nhật: <span class="accent">2025-09-26 19:07</span></div>
+    </header>
+
+    <div class="card">
+      <div class="meta">Dữ liệu đến: <span class="accent2">2025-09-26</span></div>
+
+      <div class="top3">
+        <div class="pill">
+                <div class="rank">#1</div>
+                <div class="num">20</div>
+                <div class="note">score 2.744 • 30d: 5 • recency: 0 ngày</div>
+              </div><div class="pill">
+                <div class="rank">#2</div>
+                <div class="num">92</div>
+                <div class="note">score 1.059 • 30d: 3 • recency: 0 ngày</div>
+              </div><div class="pill">
+                <div class="rank">#3</div>
+                <div class="num">22</div>
+                <div class="note">score 0.765 • 30d: 1 • recency: 1 ngày</div>
+              </div>
+      </div>
+
+      <details>
+        <summary>Hiển thị bảng điểm đầy đủ (00–99)</summary>
+        <div class="panel">
+          <table class="dataframe tbl">
+  <thead>
+    <tr style="text-align: right;">
+      <th>num</th>
+      <th>score</th>
+      <th>freq_30d</th>
+      <th>recency_days</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>20</td>
+      <td>2.743594</td>
+      <td>5</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>92</td>
+      <td>1.059083</td>
+      <td>3</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>0.765278</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>0.765278</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>0.765278</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>0.765278</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>0.765278</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>0.765278</td>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>0.216827</td>
+      <td>2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>0.216827</td>
+      <td>2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>0.216827</td>
+      <td>2</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>00</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>05</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>06</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>07</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>08</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>09</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>68</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>69</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>73</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>79</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>84</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>87</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>88</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>94</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>95</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>-0.076978</td>
+      <td>0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>-0.625429</td>
+      <td>1</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>-0.625429</td>
+      <td>1</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>-0.625429</td>
+      <td>1</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>-0.625429</td>
+      <td>1</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+      </details>
+
+      <div class="disclaimer">⚠️ Miễn trừ trách nhiệm: Đây là thống kê mô tả từ dữ liệu quá khứ. Không đảm bảo kết quả; nội dung chỉ mang tính chất tham khảo. Vui lòng chơi có trách nhiệm.</div>
+    </div>
+  </div>
+</body>
+</html>

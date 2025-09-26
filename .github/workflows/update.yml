@@ -30,7 +30,7 @@ jobs:
         run: |
           python xsmb_auto_update.py
           # Lấy bản gọn làm homepage
-          cp index_top3_only.html index.html
+          cp index_top3_pretty.html index.html
 
       - name: Commit changes
         run: |
